@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        {% for users in users %}
+          <li>{{users.fname}} 
+              {{users.lname}}
+              {{users.email}}
+              {{users.age}}
+              {{users.created_at}}
+              {{users.updated_at}}
+          </li>
+        {% endfor %}
+      </ul>
+    
+    <form action="/show" method="get">
+        {% csrf_token %}
+        <select name="sort" id="sort">
+            <option value="first">First</option>
+            <option value="last">Last</option>
+            <option value="all">All</option>
+            <option value="alpha">Alphabetical</option>
+            <option value="create">New User</option>
+        </select>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
